@@ -14,7 +14,7 @@ void LInsert(List *plist, LData data)
 		puts("저장 공간이 부족해 저장에 실패했습니다.\n");
 		return;
 	}
-	plist->arr[numOfData] = data;
+	plist->arr[plist->numOfData] = data;
 	(plist->numOfData)++;
 }
 
@@ -24,7 +24,7 @@ int LFirst(List *plist, LData *pdata)
 		return FALSE;
 	
 	plist->CurPosition = 0;
-	*pdata = plist->arr[plist->CurPosition];
+	*pdata = plist->arr[0];
 	return TRUE;
 }
 
@@ -42,10 +42,10 @@ LData LRemove(List *plist)
 {
 	int idx = plist->CurPosition;
 	int num = plist->numOfData;
-	int target = plist->arr[idx];
+	LData target = plist->arr[idx];
 	int i;
 	
-	for(i=0; i<num-1; i++)
+	for(i=idx; i<num-1; i++)
 		plist->arr[i] = plist->arr[i+1];
 	
 	(plist->CurPosition)--;
