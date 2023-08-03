@@ -1,12 +1,21 @@
 #include <stdio.h>
 #include "DLinkedList.h"
 
+int WhoIsPrecede(int d1, int d2)
+{
+	if (d1 < d2)
+		return 0;
+	else
+		return 1;
+}
+
 int main(void)
 {
 	// New List produce & initialize
 	List list;
 	int data;
 	ListInit(&list);
+	SetSortRule(&list, WhoIsPrecede);            // define Sort Rule
 	
 	// Insert data to linked list
 	LInsert(&list, 11); LInsert(&list, 11);
