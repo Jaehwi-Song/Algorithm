@@ -1,10 +1,11 @@
 #ifndef __D_LINKED_LIST_H__
 #define __D_LINKED_LIST_H__
-
+#include "Point.h"      // depend on data type we use for a Node->data.
 #define TRUE 1
 #define FALSE 0
 
-typedef int LData;
+typedef Point * LData;   // save Point data type into a Node; 
+// typedef int * LData;  // save integer data type into a Node;
 
 typedef struct _node
 {
